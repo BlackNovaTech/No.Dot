@@ -12,3 +12,6 @@ export HISTFILESIZE=1000
 export HISTCONTROL=erasedups
 
 if [[ -s $HOME/.zshrc_local ]]; then source $HOME/.zshrc_local ; fi
+
+alias tmux='tmux -2'
+alias tmuxa='tmux -2 a'
