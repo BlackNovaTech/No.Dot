@@ -1,0 +1,41 @@
+[user]
+	name = Jur van den Berg
+	email = Jurl.berg@gmail.com
+	signingkey = C1DFE5DC
+
+[core]
+	autocrlf = input
+  editor = vim
+  pager = less
+  whitespace = trailing-space,space-before-tab
+
+[diff]
+  algorithm = patience
+
+[color]
+	ui = auto
+
+[push]
+	default = current
+
+[alias]
+	st = status
+	ci = commit --verbose
+	co = checkout
+	sco = commit -S
+	scom = commit -S -m
+	di = diff
+	dc = diff --cached
+	amend = commit --amend
+	aa = add --all
+	ff = merge --ff-only
+	pullff = pull --ff-only
+	noff = merge --no-ff
+	fa = fetch --all
+	pom = push origin master
+	b = branch
+	ds = diff --stat=160,120
+	dh1 = diff HEAD~1
+
+[merge]
+	tool = vimdiff
