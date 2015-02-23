@@ -7,8 +7,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
+
 Plugin 'sickill/vim-monokai'
 Plugin 'nanotech/jellybeans.vim'
+
+Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 filetype plugin indent on
 
@@ -91,7 +94,7 @@ augroup END
 
 :set t_Co=256
 :set background=dark
-:color jellybeans
+:color monokai 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 imap <c-c> <esc>
 nnoremap <leader><leader> <c-^>
