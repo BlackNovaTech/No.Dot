@@ -33,6 +33,7 @@ if [ ! -d "$NODOT" ]; then
   link "${NODOT}/gitconfig" ".gitconfig"
   link "${NODOT}/tmux.conf" ".tmux.conf"
   link "${NODOT}/vimrc" ".vimrc"
+  link "${NODOT}/gvimrc" ".gvimrc"
   link "${NODOT}/zlogin" ".zlogin"
   link "${NODOT}/zlogout" ".zlogout"
   link "${NODOT}/zpreztorc" ".zpreztorc"
