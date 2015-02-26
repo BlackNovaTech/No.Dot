@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'scrooloose/nerdtree'
 
 Plugin 'sickill/vim-monokai'
 Plugin 'nanotech/jellybeans.vim'
@@ -49,9 +50,6 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
-filetype plugin on
-filetype indent on
-
 set nowrap
 set linebreak
 
@@ -83,6 +81,8 @@ set ignorecase
 set smartcase
 set showmatch
 
+set mouse=a
+
 augroup vimrcEx
   autocmd!
   autocmd BufReadPost *
@@ -94,9 +94,10 @@ augroup END
 
 :set t_Co=256
 :set background=dark
-:color monokai 
+:color jellybeans 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 imap <c-c> <esc>
+map <c-n> :NERDTreeToggle<CR>
 nnoremap <leader><leader> <c-^>
 
 function! InsertTabWrapper()
