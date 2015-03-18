@@ -101,13 +101,5 @@ imap <c-c> <esc>
 map <c-n> :NERDTreeToggle<CR>
 nnoremap <leader><leader> <c-^>
 
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
+" Sudo write to file
+cmap w!! w !sudo tee > /dev/null %
