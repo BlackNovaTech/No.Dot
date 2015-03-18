@@ -13,6 +13,7 @@ Plugin 'sickill/vim-monokai'
 Plugin 'nanotech/jellybeans.vim'
 
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-rails'
 call vundle#end()
 filetype plugin indent on
 

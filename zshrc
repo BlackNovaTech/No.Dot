@@ -4,7 +4,7 @@ fi
 
 [[ $- = *i* ]] && source $HOME/.nodot/liquidprompt/liquidprompt
 
-export PATH="$HOME/bin:${PATH}"
+export PATH="${PATH}:$HOME/bin"
 
 export EDITOR='vim'
 export HISTSIZE=1000
@@ -15,3 +15,5 @@ if [[ -s $HOME/.zshrc_local ]]; then source $HOME/.zshrc_local ; fi
 
 alias tmux='tmux -2'
 alias tmuxa='tmux -2 a'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
