@@ -90,7 +90,7 @@ augroup vimrcEx
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-  autocmd! BufRead,BufNewFile *.sass setfiletype sass
+  autocmd! BufRead,BufNewFile *.scss setfiletype sass
 augroup END
 
 :set t_Co=256
