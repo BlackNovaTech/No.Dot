@@ -5,15 +5,24 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'scrooloose/nerdtree'
+Plugin 'L9'
 
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ervandew/supertab'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+
+" Colorschemes
 Plugin 'sickill/vim-monokai'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'jnurmine/zenburn'
 
 Plugin 'kchmck/vim-coffee-script'
+
 Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
 call vundle#end()
 filetype plugin indent on
 
@@ -21,17 +30,23 @@ set number
 set backspace=indent,eol,start
 set history=1000
 set showcmd
-set showmode
-set gcr=a:blinkon0
+set noshowmode
 set cursorline
 set visualbell
 set autoread
+
+" airline
+set timeoutlen=50
+let g:airline_powerline_fonts = 1
+set laststatus=2
 
 set hidden
 
 syntax on
 
-let mapleader=","
+" Let space be the leader
+let mapleader=" "
+nnoremap <Space> <nop>
 
 set noswapfile
 set nobackup
@@ -95,8 +110,7 @@ augroup END
 
 :set t_Co=256
 :set background=dark
-:color jellybeans 
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+:color jellybeans
 imap <c-c> <esc>
 map <c-n> :NERDTreeToggle<CR>
 nnoremap <leader><leader> <c-^>
