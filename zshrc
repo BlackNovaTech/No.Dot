@@ -16,4 +16,7 @@ if [[ -s $HOME/.zshrc_local ]]; then source $HOME/.zshrc_local ; fi
 alias tmux='tmux -2'
 alias tmuxa='tmux -2 a'
 
+alias novafix_wmjava='export _JAVA_AWT_WM_NONREPARENTING=1'
+alias novafix_qtgray='export QT_X11_NO_MITSHM=1'
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
