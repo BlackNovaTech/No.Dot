@@ -20,3 +20,4 @@ alias novafix_wmjava='export _JAVA_AWT_WM_NONREPARENTING=1'
 alias novafix_qtgray='export QT_X11_NO_MITSHM=1'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
