@@ -40,6 +40,7 @@ if [ ! -d "$NODOT" ]; then
   link "${NODOT}/zprofile" ".zprofile"
   link "${NODOT}/zshenv" ".zshenv"
   link "${NODOT}/zshrc" ".zshrc"
+  link "${NODOT}/gitignore" ".gitignore"
   echo "Calling Vundle install!"
   vim +PluginInstall +qall
 else
