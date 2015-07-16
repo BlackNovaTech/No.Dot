@@ -12,7 +12,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
+Plugin 'wincent/command-t'
 
 " Colorschemes
 Plugin 'sickill/vim-monokai'
