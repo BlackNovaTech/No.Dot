@@ -9,6 +9,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/nginx.vim'
+Plug 'rhysd/vim-crystal'
 
 " Interface
 Plug 'bling/vim-airline'
