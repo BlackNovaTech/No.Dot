@@ -43,9 +43,7 @@ set hidden
 
 syntax on
 
-" Let space be the leader
-let mapleader=" "
-nnoremap <Space> <nop>
+let mapleader=","
 
 set noswapfile
 set nobackup
