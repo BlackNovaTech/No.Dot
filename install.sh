@@ -13,11 +13,12 @@ link() {
 
 echo "Installing No.Dot!"
 
-if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
-  echo "Cloning Vundle"
-  git clone https://github.com/gmarik/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
+if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
+  echo "Installing Plug"
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
-  echo "Vundle found!"
+  echo "Plug found!"
 fi
 
 if [ ! -d "$HOME/.zprezto" ]; then
@@ -41,8 +42,8 @@ if [ ! -d "$NODOT" ]; then
   link "${NODOT}/zshenv" ".zshenv"
   link "${NODOT}/zshrc" ".zshrc"
   link "${NODOT}/gitignore" ".gitignore"
-  echo "Calling Vundle install!"
-  vim +PluginInstall +qall
+  echo "Calling Plug install!"
+  vim +PlugInstall +qall
 else
   echo "No.Dot already installed, what are you waiting for?"
 fi
