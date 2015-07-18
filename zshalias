@@ -1,4 +1,4 @@
-alias sshfs.kassatellen="sshfs kassatellen:/www /mnt/kassatellen -C"
+alias sshfs.kassatellen="sshfs kassatellen:/www/beta.kassatellen.nl/htdocs/ /mnt/kassatellen -C"
 
 alias tmux='tmux -2'
 alias tmuxa='tmux -2 a'
