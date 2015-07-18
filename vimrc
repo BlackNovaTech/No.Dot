@@ -98,6 +98,9 @@ set showmatch
 
 set mouse=a
 
+set list
+set listchars=tab:▸\ ,eol:¬
+
 augroup vimrcEx
   autocmd!
   autocmd BufReadPost *
