@@ -170,7 +170,7 @@ set wrap
 
 " Show EOL and TAB characters
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,trail:·
 
 " ===========
 " Visual mode
@@ -223,8 +223,10 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
-" Remember info about open buffers on close
-set viminfo^=%
+
+" Git commit messages should go to start
+autocmd BufReadPost COMMIT_EDITMSG
+  \ exe "normal! gg"
 
 " Arrow keys suck...
 inoremap <Up>    <NOP>
@@ -318,6 +320,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" YouCompleteMe
+let g:ycm_show_diagnostics_ui = 0
 
 " =========
 " Languages
