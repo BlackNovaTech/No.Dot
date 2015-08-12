@@ -38,4 +38,6 @@ Session.vim
 /out/
 .idea_modules
 
+#Node
+node_modules
 
