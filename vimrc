@@ -228,16 +228,6 @@ autocmd BufReadPost *
 autocmd BufReadPost COMMIT_EDITMSG
   \ exe "normal! gg"
 
-" Arrow keys suck...
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-noremap  <Up>    <NOP>
-noremap  <Down>  <NOP>
-noremap  <Left>  <NOP>
-noremap  <Right> <NOP>
-
 " ===========
 " Status line
 " ===========
