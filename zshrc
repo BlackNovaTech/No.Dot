@@ -14,6 +14,9 @@ export HISTCONTROL=erasedups
 if [[ -s $HOME/.zshrc_local ]]; then source $HOME/.zshrc_local ; fi
 if [[ -s $HOME/.zshalias ]]; then source $HOME/.zshalias ; fi
 
-export rvmsudo_secure_path=0
-export PATH="$PATH:/usr/local/rvm/bin" # Add RVM to PATH for scripting
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
+# Only use RVM when we are a normal user
+if [[ $EUID -ne 0 ]]; then
+  export rvmsudo_secure_path=0
+  export PATH="$PATH:/usr/local/rvm/bin" # Add RVM to PATH for scripting
+  [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
+fi
