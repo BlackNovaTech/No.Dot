@@ -10,6 +10,7 @@ Plug 'fatih/vim-go'
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/nginx.vim'
 Plug 'rhysd/vim-crystal'
+Plug 'leafgarland/typescript-vim'
 
 " Interface
 Plug 'bling/vim-airline'
