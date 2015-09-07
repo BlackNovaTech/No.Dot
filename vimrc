@@ -167,7 +167,7 @@ set ai
 set si
 
 " Wrapping
-set wrap
+set nowrap
 
 " Show EOL and TAB characters
 set list
