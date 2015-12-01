@@ -19,7 +19,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'myusuf3/numbers.vim'
 Plug 'majutsushi/tagbar'
-Plug 'edkolev/tmuxline.vim'
 
 " Utility
 Plug 'tpope/vim-fugitive'
@@ -171,7 +170,13 @@ set nowrap
 
 " Show EOL and TAB characters
 set list
-set listchars=tab:▸\ ,trail:·
+set listchars=tab:▸\ ,trail:·,eol:¬
+
+" Remove trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Remove trailing tabs
+autocmd BufWritePre * :%s/\t\+$//e
 
 " ===========
 " Visual mode
