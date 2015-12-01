@@ -39,9 +39,13 @@
   dh1 = difftool HEAD~1
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %n%Cred%GK\\%Cblue[%GS]" --decorate --numstat
-  repull = !git reset --hard && git pullff
+  repull = !git aa && git reset --hard && git pullff
 
 [merge]
   tool = vimdiff
 [difftool]
   prompt = false
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
