@@ -407,13 +407,9 @@ let g:syntastic_aggregate_errors = 1
 
 " IndentLine
 let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
-" Vim
 let g:indentLine_color_term = 237
-"
-" "GVim
 let g:indentLine_color_gui = '#333333'
 
 " =============
@@ -497,6 +493,7 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+" Set the correct symbols for airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
