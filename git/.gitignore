@@ -1,0 +1,62 @@
+# RUBY
+*.gem
+*.rbc
+.rvmrc
+/.config
+/coverage
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+## Ruby Docs
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Bundler
+/.bundle/
+/vendor/bundle
+/lib/bundler/man
+
+# VIM
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+*.swp
+*.vi
+
+# IntelliJ
+*.iml
+.idea/
+*.ipr
+*.iws
+/out/
+.idea_modules
+
+# Node.js
+node_modules
+
+# Python
+*.pyc
+
+# SCSS
+*.sass-cache
+
+# FUCK EVERYONE WHO HAS THESE
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+
+# Diffs, Errors and Logs
+*.diff
+*.err
+*.log
+
