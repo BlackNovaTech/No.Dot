@@ -1,7 +1,0 @@
-alias sshfs.kassatellen="sshfs kassatellen:/www/beta.kassatellen.nl/htdocs/ /mnt/kassatellen -C"
-
-alias tmux='tmux -2'
-alias tmuxa='tmux -2 a'
-
-alias novafix_wmjava='export _JAVA_AWT_WM_NONREPARENTING=1'
-alias novafix_qtgray='export QT_X11_NO_MITSHM=1'
