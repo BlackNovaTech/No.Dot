@@ -1,0 +1,7 @@
+[submodule "modules/liquidprompt"]
+	path = modules/liquidprompt
+	url = https://github.com/nojhan/liquidprompt.git
+	branch = develop
+[submodule "modules/prezto"]
+	path = modules/prezto
+	url = https://github.com/sorin-ionescu/prezto.git
