@@ -280,21 +280,17 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
 " Buffer mappings
-nnoremap <leader>bd :Bclose<cr>
+nnoremap <leader>bd :bd<cr>
 nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
 
 " Tab mappings
-nnoremap <leader>tn :tabnew<cr>
+nnoremap <leader>tc :tabnew<cr>
 nnoremap <leader>to :tabonly<cr>
-nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>td :tabclose<cr>
 nnoremap <leader>tm :tabmove<cr>
-
-" Opens a tab with current buffer's path
-noremap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
-
-" Swich CWD to current buffer's path
-noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>tn gt
+nnoremap <leader>tp gT
 
 " Fat finger fixes
 cnoreabbrev W! w!
@@ -319,7 +315,6 @@ vnoremap K :m '<-2<cr>gv=gv
 " Dirmappings
 cno $h e ~/
 cno $je ./
-cno $c e <C-\>eCurrentFileDir("e")<cr>
 
 " Specify tab switch behaviour
 set switchbuf=useopen,usetab,newtab
@@ -467,11 +462,22 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
     \ }
 
+" Java
+augroup Filetype java
+  au!
+  au FileType java set ts=4 sw=4
+augroup END
+
+" Volt
+augroup vimrc-volt
+  au!
+  au BufNewFile,BufRead *.volt setlocal filetype=jinja2
+augroup END
 
 " Ruby
 augroup vimrc-ruby
-  autocmd!
-  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
+  au!
+  au BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
 augroup END
 
 let g:tagbar_type_ruby = {
