@@ -3,5 +3,5 @@
 	url = https://github.com/nojhan/liquidprompt.git
 	branch = develop
 [submodule "modules/prezto"]
-	path = modules/prezto
+	path = zsh/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git

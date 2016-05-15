@@ -1,0 +1,3 @@
+alias se="sudo $EDITOR"
+
+if [[ -s "$HOME/.zshalias.local" ]]; then source "$HOME/.zshalias.local"; fi
