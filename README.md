@@ -9,9 +9,16 @@ Now bursting with more flavour and goodies
 
 Just clone and use stow to install what you like
 ```sh
-git clone git://github.com/BlackNovaTech/No.Dot ~/.nodot
-cd .nodot
+git clone git://github.com/BlackNovaTech/No.Dot ~/.nodot --recursive
+cd ~/.nodot
 stow -S <dir>
 ```
+
+## Available packages
+- zsh
+- bash
+- git
+- vim
+- tmux
 
 ## GLHF
