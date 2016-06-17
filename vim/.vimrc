@@ -68,6 +68,7 @@ call dein#add('xolox/vim-misc')
 call dein#add('xolox/vim-session')
 call dein#add('tpope/vim-surround')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('easymotion/vim-easymotion')
 
 " Colors
 call dein#add('chriskempson/vim-tomorrow-theme')
@@ -275,10 +276,6 @@ set titlestring=%F
 " Bindings
 " ========
 
-" Binds * and # for searching for current selection
-vnoremap <silent> * :call VisualSelection('f', '')<CR>
-vnoremap <silent> # :call VisualSelection('b', '')<CR>
-
 " Ignore wraps for j and k
 nnoremap j gj
 nnoremap k gk
@@ -354,6 +351,14 @@ nnoremap <leader>nf :NERDTreeFind<cr>
 " =====================
 " Plugin Configurations
 " =====================
+
+" easymotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f)
+nmap S <Plug>(easymotion-overwin-f2)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
