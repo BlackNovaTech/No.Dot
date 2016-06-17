@@ -1,16 +1,26 @@
 set nocompatible
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
+if has('nvim')
+  let base = '~/.nvim'
+else
+  let base = '~/.vim'
+end
+
 " Inspired by vim-bootstrap
-let dein_readme=expand('~/.vim/dein/repos/github.com/Shougo/dein.vim/README.md')
+let dein_readme=expand(base . '/dein/repos/github.com/Shougo/dein.vim/README.md')
 if !filereadable(dein_readme)
   echo "Installing dein.vim..."
   echo ""
-  silent !mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
-  silent !git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
-
+  if has('nvim')
+    silent !mkdir -p ~/.nvim/dein/repos/github.com/Shougo/dein.vim
+    silent !git clone https://github.com/Shougo/dein.vim.git ~/.nvim/dein/repos/github.com/Shougo/dein.vim
+  else
+    silent !mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
+    silent !git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
+  end
   echo "Installing vimproc..."
-  call dein#begin(expand('~/.vim/dein'))
+  call dein#begin(expand(base . '/dein'))
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#end()
@@ -19,7 +29,7 @@ if !filereadable(dein_readme)
   let g:not_finished_dein = "yes"
 endif
 
-call dein#begin(expand('~/.vim/dein'))
+call dein#begin(expand(base . '/dein'))
 
 " Package manager
 call dein#add('Shougo/dein.vim')
@@ -30,6 +40,7 @@ call dein#add('vim-scripts/c.vim',
       \{'on_ft': ['c', 'cpp']})
 call dein#add('jelera/vim-javascript-syntax',
       \{'on_ft': 'javascript'})
+call dein#add('fatih/vim-go')
 
 " Interface
 call dein#add('scrooloose/nerdtree')
@@ -39,7 +50,10 @@ call dein#add('vim-airline/vim-airline-themes')
 call dein#add('majutsushi/tagbar')
 call dein#add('ctrlpvim/ctrlp.vim')
 
-if !has('nvim')
+if has ('nvim')
+  call dein#add('shougo/deoplete.nvim')
+  call dein#add('zchee/deoplete-go')
+else
   call dein#add('shougo/vimshell.vim')
 endif
 
@@ -57,6 +71,7 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
 " Colors
 call dein#add('chriskempson/vim-tomorrow-theme')
+call dein#add('gosukiwi/vim-atom-dark')
 
 " Include extra plugins
 if filereadable(expand("~/.vimrc.local.plugins"))
@@ -228,7 +243,6 @@ endif
 if has("gui_running")
   set guioptions=egmrti
   set guitablabel=%M\ %t
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h10
 endif
 
 " Enable mouse support (really shouldn't though)
@@ -341,6 +355,9 @@ nnoremap <leader>nf :NERDTreeFind<cr>
 " Plugin Configurations
 " =====================
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
 " vim-session
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
@@ -451,16 +468,16 @@ augroup FileType go
 augroup END
 
 let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
-        \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
-        \ 'r:constructor', 'f:functions' ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
-    \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
+      \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
+      \ 'r:constructor', 'f:functions' ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
+      \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
+      \ 'ctagsbin'  : 'gotags',
+      \ 'ctagsargs' : '-sort -silent'
+      \ }
 
 " Java
 augroup Filetype java
@@ -481,15 +498,15 @@ augroup vimrc-ruby
 augroup END
 
 let g:tagbar_type_ruby = {
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
-\ }
+      \ 'kinds' : [
+      \ 'm:modules',
+      \ 'c:classes',
+      \ 'd:describes',
+      \ 'C:contexts',
+      \ 'f:methods',
+      \ 'F:singleton methods'
+      \ ]
+      \ }
 
 " ============
 " Override VIM
