@@ -7,6 +7,11 @@ fi
 
 export PATH="$PATH:$HOME/bin"
 
+# Source Aliases
+if [[ -s "${ZDOTDIR:-$HOME}/.zshalias" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshalias"
+fi
+
 # User config
 if [[ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc.local"
