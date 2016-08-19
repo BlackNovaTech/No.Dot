@@ -1,0 +1,2 @@
+#!/bin/sh
+rofi -modi run,window,workspace:rofi_kde_switch_workspace.sh,ssh $@
