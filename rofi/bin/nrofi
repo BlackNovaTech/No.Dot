@@ -1,2 +1,3 @@
 #!/bin/sh
+export PATH="$PATH:$HOME/bin"
 rofi -modi run,window,workspace:rofi_kde_switch_workspace.sh,ssh $@
