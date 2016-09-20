@@ -53,6 +53,7 @@
 
 [merge]
   log = true
+  tool = vimdiff
 
 [filter "lfs"]
   required = true
