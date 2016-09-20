@@ -53,8 +53,10 @@ call dein#add('ctrlpvim/ctrlp.vim')
 if has ('nvim')
   call dein#add('shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-go')
+  call dein#add('neomake/neomake')
 else
   call dein#add('shougo/vimshell.vim')
+  call dein#add('scrooloose/syntastic')
 endif
 
 " Utility
@@ -62,7 +64,6 @@ call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-fugitive')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('jiangmiao/auto-pairs')
-call dein#add('scrooloose/syntastic')
 call dein#add('Yggdroot/indentLine')
 call dein#add('xolox/vim-misc')
 call dein#add('xolox/vim-session')
@@ -429,6 +430,10 @@ let g:indentLine_faster = 1
 let g:indentLine_color_term = 237
 let g:indentLine_color_gui = '#333333'
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+
 " =============
 " AutoCMD rules
 " =============
@@ -451,6 +456,11 @@ augroup vimrc-git-cursor-jumpback
   autocmd!
   autocmd BufReadPost COMMIT_EDITMSG exe "normal! gg"
 augroup END
+
+" Neomake
+if has('nvim')
+  autocmd! BufWritePost * Neomake
+end
 
 " =================
 " Language specific
@@ -488,6 +498,12 @@ let g:tagbar_type_go = {
 augroup Filetype java
   au!
   au FileType java set ts=4 sw=4
+augroup END
+
+" C
+augroup Filetype c
+  au!
+  au FileType c set ts=4 sw=4
 augroup END
 
 " Volt
