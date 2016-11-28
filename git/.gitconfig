@@ -69,6 +69,7 @@
   fa = fetch --all
 
   co = commit
+  com = commit -m
   sco = commit -S
   scom = commit -S -m
   amend = commit --amend -C HEAD

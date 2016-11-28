@@ -500,10 +500,11 @@ augroup Filetype java
   au FileType java set ts=4 sw=4
 augroup END
 
-" C
+" C(like)
 augroup Filetype c
   au!
   au FileType c set ts=4 sw=4
+  au FileType cpp set ts=4 sw=4
 augroup END
 
 " Volt
