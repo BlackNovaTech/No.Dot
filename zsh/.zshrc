@@ -4,6 +4,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 [[ $- = *i* ]] && source $HOME/.nodot/modules/liquidprompt/liquidprompt
+source $HOME/.nodot/modules/nozsh/fzf.zsh
 
 export PATH="$PATH:$HOME/bin"
 

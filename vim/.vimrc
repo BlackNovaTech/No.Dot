@@ -149,6 +149,9 @@ set foldcolumn=1
 " Enable line numbers
 set number
 
+" Set 80-char column
+set colorcolumn=80
+
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8

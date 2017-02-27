@@ -4,4 +4,4 @@
 	branch = develop
 [submodule "modules/prezto"]
 	path = zsh/.zprezto
-	url = https://github.com/sorin-ionescu/prezto.git
+	url = https://github.com/zsh-users/prezto.git
