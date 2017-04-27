@@ -1,6 +1,0 @@
-[submodule "modules/liquidprompt"]
-	path = modules/liquidprompt
-	url = https://github.com/nojhan/liquidprompt.git
-[submodule "modules/prezto"]
-	path = zsh/.zprezto
-	url = https://github.com/sorin-ionescu/prezto.git
