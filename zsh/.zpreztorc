@@ -30,7 +30,8 @@ zstyle ':prezto:load' pmodule \
   'ruby' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'prompt'
+  'prompt' \
+  'rsync'
 
 #
 # Autosuggestions
