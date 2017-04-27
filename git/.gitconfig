@@ -74,7 +74,7 @@
   scom = commit -S -m
   amend = commit --amend -C HEAD
 
-  aa = add --all
+  aa = add --all .
 
   pa = "!git pull; git submodule foreach git pull"
   ff = merge --ff-only

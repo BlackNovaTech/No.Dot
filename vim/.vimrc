@@ -1,9 +1,10 @@
 set nocompatible
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 if has('nvim')
+  set runtimepath+=~/.nvim/dein/repos/github.com/Shougo/dein.vim
   let base = '~/.nvim'
 else
+  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
   let base = '~/.vim'
 end
 
