@@ -20,73 +20,85 @@ if !filereadable(dein_readme)
     silent !mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
     silent !git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
   end
-  echo "Installing vimproc..."
-  call dein#begin(expand(base . '/dein'))
-  call dein#add('Shougo/dein.vim')
-  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-  call dein#end()
-  silent call dein#install()
+
+  if !has('nvim')
+    echo "Installing vimproc..."
+    call dein#begin(expand(base . '/dein'))
+    call dein#add('Shougo/dein.vim')
+    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+    call dein#end()
+    call dein#install()
+  endif
+
 
   let g:not_finished_dein = "yes"
 endif
 
-call dein#begin(expand(base . '/dein'))
+if dein#load_state(expand(base . '/dein'))
+  call dein#begin(expand(base . '/dein'))
 
-" Package manager
-call dein#add('Shougo/dein.vim')
+  " Package manager
+  call dein#add('Shougo/dein.vim')
 
-" Languages
-call dein#add('sheerun/vim-polyglot')
-call dein#add('vim-scripts/c.vim',
-      \{'on_ft': ['c', 'cpp']})
-call dein#add('jelera/vim-javascript-syntax',
-      \{'on_ft': 'javascript'})
-call dein#add('fatih/vim-go')
-call dein#add('zplug/vim-zplug')
+  " Languages
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('vim-scripts/c.vim',
+        \{'on_ft': ['c', 'cpp']})
+  call dein#add('jelera/vim-javascript-syntax',
+        \{'on_ft': 'javascript'})
+  call dein#add('fatih/vim-go')
+  call dein#add('nsf/gocode')
+  call dein#add('zplug/vim-zplug')
+  call dein#add('chase/vim-ansible-yaml')
 
-" Interface
-call dein#add('scrooloose/nerdtree')
-call dein#add('jistr/vim-nerdtree-tabs.git')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('majutsushi/tagbar')
-call dein#add('ctrlpvim/ctrlp.vim')
 
-if has ('nvim')
-  call dein#add('shougo/deoplete.nvim')
-  call dein#add('zchee/deoplete-go')
-  call dein#add('neomake/neomake')
-else
-  call dein#add('shougo/vimshell.vim')
-  call dein#add('scrooloose/syntastic')
+  " Interface
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('jistr/vim-nerdtree-tabs.git')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('majutsushi/tagbar')
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('junegunn/fzf.vim')
+
+  if has ('nvim')
+    call dein#add('shougo/deoplete.nvim')
+    call dein#add('neomake/neomake')
+  else
+    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+    call dein#add('shougo/vimshell.vim')
+    call dein#add('scrooloose/syntastic')
+  endif
+
+  " Utility
+  call dein#add('tyru/caw.vim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('jiangmiao/auto-pairs')
+  call dein#add('Yggdroot/indentLine')
+  call dein#add('xolox/vim-misc')
+  call dein#add('xolox/vim-session')
+  call dein#add('tpope/vim-surround')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  call dein#add('easymotion/vim-easymotion')
+  call dein#add('kana/vim-repeat')
+  call dein#add('myusuf3/numbers.vim')
+
+  " Colors
+  call dein#add('chriskempson/vim-tomorrow-theme')
+  call dein#add('gosukiwi/vim-atom-dark')
+
+  " Include extra plugins
+  if filereadable(expand("~/.vimrc.local.plugins"))
+    source ~/.vimrc.local.plugins
+  endif
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-" Utility
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-fugitive')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('jiangmiao/auto-pairs')
-call dein#add('Yggdroot/indentLine')
-call dein#add('xolox/vim-misc')
-call dein#add('xolox/vim-session')
-call dein#add('tpope/vim-surround')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('easymotion/vim-easymotion')
-
-" Colors
-call dein#add('chriskempson/vim-tomorrow-theme')
-call dein#add('gosukiwi/vim-atom-dark')
-
-" Include extra plugins
-if filereadable(expand("~/.vimrc.local.plugins"))
-  source ~/.vimrc.local.plugins
-endif
-
-call dein#end()
-
-if exists('g:not_finished_dein')
-  echo "Installing plugins..."
-  silent call dein#install()
+if dein#check_install()
+  call dein#install()
 end
 
 filetype plugin indent on
@@ -368,6 +380,7 @@ map <leader>k <Plug>(easymotion-k)
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " vim-session
 let g:session_directory = "~/.vim/session"
