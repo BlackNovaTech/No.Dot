@@ -42,6 +42,7 @@ call dein#add('vim-scripts/c.vim',
 call dein#add('jelera/vim-javascript-syntax',
       \{'on_ft': 'javascript'})
 call dein#add('fatih/vim-go')
+call dein#add('zplug/vim-zplug')
 
 " Interface
 call dein#add('scrooloose/nerdtree')
