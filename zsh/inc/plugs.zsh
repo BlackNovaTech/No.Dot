@@ -10,6 +10,7 @@ zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "BurntSushi/ripgrep", as:command, from:gh-r, rename-to:rg
 zplug "peco/peco", as:command, from:gh-r
+zplug "jhawthorn/fzy", as:command, hook-build:"make", use:fzy
 
 zplug "Fakerr/git-recall", as:command, use:'git-recall'
 
