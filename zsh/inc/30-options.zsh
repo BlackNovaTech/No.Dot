@@ -10,3 +10,7 @@ setopt no_hist_beep
 setopt mail_warning
 setopt always_last_prompt
 setopt auto_cd
+setopt complete_in_word
+setopt interactive_comments
+setopt list_types
+setopt magic_equal_subst
