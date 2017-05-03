@@ -1,6 +1,5 @@
 setopt promptsubst
 setopt correct
-setopt correct_all
 setopt brace_ccl
 setopt print_eight_bit
 
