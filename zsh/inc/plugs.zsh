@@ -3,6 +3,7 @@
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
 zplug "$NODOT_PATH/zsh/inc", from:local, use:"<->\-*.zsh"
+zplug "$NODOT_PATH/zsh/prompt", from:local, as:theme, use:novalis.zsh, rename-to:prompt_novalis_setup
 
 zplug "Valodim/zsh-curl-completion"
 
@@ -17,6 +18,3 @@ zplug "Fakerr/git-recall", as:command, use:'git-recall'
 zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, \
   hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto ${ZDOTDIR:-$HOME}/.zprezto"
 source "$ZSH_INCLUDE/prezto.zsh"
-
-zplug "molovo/filthy", as:theme, use:filthy.zsh, rename-to:prompt_filthy_setup
-

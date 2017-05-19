@@ -24,3 +24,5 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'pattern' \
   'line' \
   'cursor'
+
+zstyle ':prezto:module:pacman' frontend 'pacaur'
