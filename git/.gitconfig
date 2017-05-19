@@ -74,6 +74,8 @@
   scom = commit -S -m
   amend = commit --amend -C HEAD
 
+  dc = diff --cached
+
   aa = add --all .
 
   pa = "!git pull; git submodule foreach git pull"
