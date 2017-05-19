@@ -21,8 +21,6 @@ function prompt_novalis_setup {
 
   add-zsh-hook precmd prompt_novalis_precmd
 
-  local prev_status="$?"
-
   # Formats:
   #   %b - branchname
   #   %u - unstagedstr (see below)
@@ -44,17 +42,15 @@ function prompt_novalis_setup {
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
-  PROMPT="%(!.%F{yellow}.%F{magenta})%n%f"
+  PROMPT="%(!.%F{magenta}.%F{cyan})%n%f"
 
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     PROMPT="$PROMPT at %F{yellow}%m%f"
   fi
 
-
-
   # Define prompts.
   PROMPT="$PROMPT in %F{green}%~%f%F{yellow}%(1j. ★%j.)%f "'${vcs_info_msg_0_}'"
- %(?.%F{green}.%F{red}%? )%(!.#.❯)%f "
+%(?.%F{green}.%F{red}%? )%(!.#.❯)%f "
 
   RPROMPT=''
 }
