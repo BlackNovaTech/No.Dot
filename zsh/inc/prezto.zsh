@@ -22,7 +22,6 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
   'pattern' \
-  'line' \
-  'cursor'
+  'line'
 
 zstyle ':prezto:module:pacman' frontend 'pacaur'

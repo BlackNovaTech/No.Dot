@@ -3,7 +3,9 @@
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
 zplug "$NODOT_PATH/zsh/inc", from:local, use:"<->\-*.zsh"
-zplug "$NODOT_PATH/zsh/prompt", from:local, as:theme, use:novalis.zsh, rename-to:prompt_novalis_setup
+# zplug "$NODOT_PATH/zsh/prompt", from:local, as:theme, use:novalis.zsh, rename-to:prompt_novalis_setup
+
+zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh, from:github, as:theme
 
 zplug "Valodim/zsh-curl-completion"
 

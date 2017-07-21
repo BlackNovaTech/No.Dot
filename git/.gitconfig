@@ -95,6 +95,8 @@
   branches = branch -a
   remotes =  remote -v
 
+  set-upstream = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
+
 # github needs love
 [url "git@github.com:"]
   insteadOf = "gh:"
