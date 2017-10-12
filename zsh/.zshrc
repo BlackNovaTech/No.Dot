@@ -15,4 +15,10 @@ if ! zplug check --verbose; then
 fi
 zplug load
 
+# I fucking hate this file
+# The risk of breaking things is worth the hassle
+if [[ -f "$HOME/.zplug/log/job.lock" ]]; then
+  rm "$HOME/.zplug/log/job.lock"
+fi
+
 if [[ -s "$HOME/.zshrc.local" ]]; then source "$HOME/.zshrc.local"; fi

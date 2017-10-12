@@ -10,6 +10,7 @@ zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh, from:github, as:them
 zplug "Valodim/zsh-curl-completion"
 
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
+zplug "ogham/exa", as:command, from:gh-r, rename-to:exa
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "BurntSushi/ripgrep", as:command, from:gh-r, rename-to:rg
 zplug "peco/peco", as:command, from:gh-r

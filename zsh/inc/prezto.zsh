@@ -16,6 +16,7 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt' \
+  'ssh' \
   'rsync'
 
 zstyle ':prezto:module:syntax-highlighting' highlighters \
@@ -25,3 +26,4 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'line'
 
 zstyle ':prezto:module:pacman' frontend 'pacaur'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_ed25519'
