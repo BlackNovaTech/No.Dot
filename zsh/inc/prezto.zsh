@@ -1,23 +1,33 @@
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'pacman' \
-  'yum' \
-  'completion' \
-  'archive' \
-  'ruby' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'prompt' \
-  'ssh' \
-  'rsync'
+
+loadorder=(
+  environment
+  terminal
+  editor
+  history
+  directory
+  spectrum
+  utility
+  completion
+  archive
+  syntax-highlighting
+  history-substring-search
+  prompt
+  ssh
+)
+
+command_exists() {
+  type "$1" &> /dev/null
+}
+
+command_exists pacman && loadorder+=( pacman )
+command_exists dnf    && loadorder+=( dnf )
+command_exists yum    && loadorder+=( yum )
+command_exists ruby   && loadorder+=( ruby )
+command_exists rsync  && loadorder+=( rsync )
+
+zstyle ':prezto:load' pmodule $loadorder
 
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \

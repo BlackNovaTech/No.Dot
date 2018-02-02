@@ -58,8 +58,9 @@ if dein#load_state(expand(base . '/dein'))
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('majutsushi/tagbar')
-  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('junegunn/fzf', { 'build': './install --bin' })
   call dein#add('junegunn/fzf.vim')
+  call dein#add('mileszs/ack.vim')
 
   if has ('nvim')
     call dein#add('shougo/deoplete.nvim')
@@ -83,6 +84,7 @@ if dein#load_state(expand(base . '/dein'))
   call dein#add('easymotion/vim-easymotion')
   call dein#add('kana/vim-repeat')
   call dein#add('myusuf3/numbers.vim')
+  call dein#add('tpope/vim-unimpaired')
 
   " Colors
   call dein#add('chriskempson/vim-tomorrow-theme')
@@ -250,7 +252,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Remove trailing tabs
 autocmd BufWritePre * :%s/\t\+$//e
 
-"" Copy/Paste/Cut
+" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
@@ -358,13 +360,12 @@ nnoremap <leader>sc :CloseSession<cr>
 " Cd to current file
 nnoremap <leader>. :lcd %:p:h<cr>
 
-" Ctrl-P
-noremap <c-b> :CtrlPBuffer<cr>
-noremap <leader>p :CtrlP<cr>
-
 " Nerdtree
 nnoremap <leader>nn :NERDTreeToggle<cr>
 nnoremap <leader>nf :NERDTreeFind<cr>
+
+" Quickfix
+nnoremap \x :cclose<CR>
 
 " =====================
 " Plugin Configurations
@@ -388,21 +389,20 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
+" fzf
+nmap ; :Buffers<CR>
+nmap <Leader>p :Files<CR>
+nmap <Leader>r :Tags<CR>
 
-"" Ctrl-P
-set wildmenu
-set wildmode=list:longest,list:full
-set wildignore=*.o,*.obj,*~,*sass-cache*
-set wildignore+=*vim/backups*,*DS_Store*,log/**,*/tmp/**
-set wildignore+=*.png,*.jpg,*.gif
-set wildignore+=*node_modules/**
-set wildignore+=*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 1
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_max_height = 20
+" tagbar
+nmap <Leader>' :Tagbar<CR>
+
+" Ack.vim
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+endif
+nmap <M-k> :Ack "\b<cword>\b" <CR>
+nmap <Esc>k :Ack "\b<cword>\b" <CR>
 
 " Nerd Tree
 let g:NERDTreeChDirMode=2
@@ -498,6 +498,8 @@ augroup FileType go
   au FileType go nmap <leader>gr <Plug>(go-run)
   au FileType go nmap <leader>rb <Plug>(go-build)
   au FileType go nmap <leader>gt <Plug>(go-test)
+
+  au BufWritePre *.go :GoImports
 augroup END
 
 let g:tagbar_type_go = {
