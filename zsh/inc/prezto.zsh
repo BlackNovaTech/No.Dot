@@ -14,6 +14,7 @@ loadorder=(
   syntax-highlighting
   history-substring-search
   prompt
+  ssh
 )
 
 command_exists() {
@@ -36,3 +37,4 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'line'
 
 zstyle ':prezto:module:pacman' frontend 'pacaur'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_ed25519'
