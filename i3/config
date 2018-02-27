@@ -16,8 +16,8 @@ client.background        $UNFOCUS
 
 
 ### Borders ###
-new_window pixel 1
-new_float pixel 1
+new_window pixel 2
+new_float pixel 2
 focus_follows_mouse no
 
 ### Gaps ###
@@ -31,7 +31,7 @@ gaps outer $default_gaps_outer
 set $ws1 1: main
 set $ws2 2: web
 set $ws3 3: terms
-set $ws4 4: media
+set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
@@ -150,7 +150,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -modi run,window,ssh -show run"
+bindsym $mod+d exec "rofi -modi run,drun,window,ssh -show combi -combi-modi run,drun -matching fuzzy"
 
 # reload the configuration file
 bindsym $mod+Alt+c reload
@@ -165,16 +165,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -185,12 +182,14 @@ bindsym XF86AudioPrev exec playerctl previous
 ### Window default locations ###
 
 assign [class="chromium"] $ws2
+assign [class="firefox"] $ws2
+assign [class="Nightly"] $ws2
 
 ### Window floats ###
+
 for_window [class="Gimp"] floating enable
 for_window [class="telegram-desktop"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Nylas N1"] floating enable
 
 ### Bar ###
 bar {
@@ -212,6 +211,12 @@ bar {
 
 ### Startup programs ###
 
-exec --no-startup-id feh --bg-scale ~/Pictures/akame_wallpaper.png
+exec --no-startup-id feh --bg-scale ~/Pictures/Shuvi.png
 exec --no-startup-id compton -b
-exec --no-startup-id nm-applet
+
+exec --no-startup-id telegram-desktop -startintray
+exec --no-startup-id jetbrains-toolbox --minimize
+
+exec nm-applet
+exec xfce4-volumed
+exec volumeicon
