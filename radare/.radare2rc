@@ -1,0 +1,24 @@
+# Pretty UTF8 lines
+e scr.utf8=true
+
+# Show invalid instruction as hex
+e asm.invhex=true
+
+# Align disassembly bytes to right
+e asm.lbytes=false
+
+# Show accesses of local variables
+e asm.varxs=true
+
+# Default path to rarun profile
+# This option is persistent after ood
+e dbg.profile=./run.rr2
+
+# Align comments to the right
+e asm.cmtright=true
+
+# Show assembly pseudocode?
+# e asm.pseudo=true
+
+# Show stacks?
+e cmd.stack=true
