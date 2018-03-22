@@ -292,6 +292,9 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
+" Fix for Konsole fucking up with gui cursors over SSH
+set guicursor=
+
 " ========
 " Bindings
 " ========
