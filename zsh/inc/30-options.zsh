@@ -13,3 +13,4 @@ setopt complete_in_word
 setopt interactive_comments
 setopt list_types
 setopt magic_equal_subst
+setopt menucomplete
