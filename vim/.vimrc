@@ -553,6 +553,13 @@ let g:tagbar_type_ruby = {
       \ ]
       \ }
 
+" Php
+augroup Filetype php
+  au!
+  au Filetype php set ts=4 sw=4
+augroup END
+
+
 " ============
 " Override VIM
 " ============
