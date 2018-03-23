@@ -2,7 +2,7 @@
 font             = Hack 11
 scrollback_lines = 10000
 clickable_url    = true
-browser          = firefox-nightly
+browser          = chromium-browser
 allow_bold       = true
 allow_italic     = true
 visible_bell     = false
