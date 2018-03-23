@@ -105,5 +105,3 @@
 [url "git://github.com/"]
   insteadOf = "github:"
 
-[url "git@git.thenextsoftware.io:"]
-  insteadOf = "https://git.thenextsoftware.io/"
