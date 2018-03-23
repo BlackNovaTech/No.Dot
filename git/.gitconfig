@@ -98,7 +98,6 @@
 # github needs love
 [url "git@github.com:"]
   insteadOf = "gh:"
-  insteadOf = "https://github.com/"
   pushInsteadOf = "github:"
   pushInsteadOf = "git://github.com/"
 
