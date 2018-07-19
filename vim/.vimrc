@@ -85,6 +85,7 @@ if dein#load_state(expand(base . '/dein'))
   call dein#add('kana/vim-repeat')
   call dein#add('myusuf3/numbers.vim')
   call dein#add('tpope/vim-unimpaired')
+  call dein#add('mattn/emmet-vim')
 
   " Colors
   call dein#add('chriskempson/vim-tomorrow-theme')
@@ -481,6 +482,10 @@ augroup END
 " Neomake
 if has('nvim')
   autocmd! BufWritePost * Neomake
+end
+
+if exists('+inccommand')
+  set inccommand=nosplit
 end
 
 " =================
