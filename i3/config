@@ -21,8 +21,8 @@ new_float pixel 2
 focus_follows_mouse no
 
 ### Gaps ###
-set $default_gaps_inner 12
-set $default_gaps_outer 0
+set $default_gaps_inner 6
+set $default_gaps_outer 2
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
@@ -144,7 +144,7 @@ bindsym $mod+space focus mode_toggle
 ### Keybinds ###
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec konsole
 
 # kill focused window(s)
 bindsym $mod+Shift+c kill
@@ -182,14 +182,18 @@ bindsym XF86AudioPrev exec playerctl previous
 ### Window default locations ###
 
 assign [class="chromium"] $ws2
+assign [class="chromium-browser"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Nightly"] $ws2
 
 ### Window floats ###
 
 for_window [class="Gimp"] floating enable
-for_window [class="telegram-desktop"] floating enable
+#for_window [class="Telegram"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="TeamViewer"] floating enable
+for_window [class="Hopper"] floating enable
+for_window [class="Plexamp"] floating enable
 
 ### Bar ###
 bar {
@@ -212,11 +216,15 @@ bar {
 ### Startup programs ###
 
 exec --no-startup-id feh --bg-scale ~/Pictures/Shuvi.png
-exec --no-startup-id compton -b
+exec --no-startup-id compton -b --config ~/.config/compton.conf
+exec --no-startup-id udiskie -ans
+exec --no-startup-id parcellite
+exec --no-startup-id redshift
 
 exec --no-startup-id telegram-desktop -startintray
 exec --no-startup-id jetbrains-toolbox --minimize
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 exec nm-applet
-exec xfce4-volumed
+exec xfce4-volumed-pulse
 exec volumeicon
