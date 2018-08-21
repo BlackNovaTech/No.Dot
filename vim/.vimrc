@@ -62,7 +62,7 @@ if dein#load_state(expand(base . '/dein'))
   call dein#add('junegunn/fzf.vim')
   call dein#add('mileszs/ack.vim')
 
-  if has ('nvim')
+  if has('nvim')
     call dein#add('shougo/deoplete.nvim')
     call dein#add('neomake/neomake')
   else
@@ -86,6 +86,9 @@ if dein#load_state(expand(base . '/dein'))
   call dein#add('myusuf3/numbers.vim')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('mattn/emmet-vim')
+
+  " Write!! replacement
+  call dein#add('lambdalisue/suda.vim')
 
   " Colors
   call dein#add('chriskempson/vim-tomorrow-theme')
@@ -121,7 +124,7 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 
 " Sudo write
-cmap w!! w !sudo tee >/dev/null %
+cmap w!! w suda://%
 
 " Scroll spacing
 set scrolloff=8
