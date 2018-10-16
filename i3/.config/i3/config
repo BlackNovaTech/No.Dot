@@ -144,7 +144,7 @@ bindsym $mod+space focus mode_toggle
 ### Keybinds ###
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec terminator
 
 # kill focused window(s)
 bindsym $mod+Shift+c kill
@@ -219,11 +219,11 @@ exec --no-startup-id feh --bg-scale ~/Pictures/Shuvi.png
 exec --no-startup-id compton -b --config ~/.config/compton.conf
 exec --no-startup-id udiskie -ans
 exec --no-startup-id parcellite
-exec --no-startup-id redshift
+#exec --no-startup-id redshift
 
 exec --no-startup-id telegram-desktop -startintray
 exec --no-startup-id jetbrains-toolbox --minimize
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+# exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 exec nm-applet
 exec xfce4-volumed-pulse

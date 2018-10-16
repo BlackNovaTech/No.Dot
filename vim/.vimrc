@@ -86,12 +86,13 @@ if dein#load_state(expand(base . '/dein'))
   call dein#add('myusuf3/numbers.vim')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('mattn/emmet-vim')
+  call dein#add('godlygeek/tabular')
 
   " Write!! replacement
   call dein#add('lambdalisue/suda.vim')
 
   " Colors
-  call dein#add('chriskempson/vim-tomorrow-theme')
+  call dein#add('chriskempson/base16-vim')
   call dein#add('gosukiwi/vim-atom-dark')
 
   " Include extra plugins
@@ -198,7 +199,7 @@ set background=dark
 set t_Co=256
 
 " Set color theme
-color Tomorrow-Night-Eighties
+color atom-dark-256
 
 " Mouse tweak
 set mousemodel=popup
@@ -281,7 +282,7 @@ set mouse=a
 set laststatus=2
 
 " Statusline format
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
@@ -565,6 +566,12 @@ let g:tagbar_type_ruby = {
 augroup Filetype php
   au!
   au Filetype php set ts=4 sw=4
+augroup END
+
+" HAProxy
+augroup Filetype haproxy
+  au!
+  au Filetype haproxy set ts=4 sw=4
 augroup END
 
 

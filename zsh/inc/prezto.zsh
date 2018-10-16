@@ -36,5 +36,5 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'pattern' \
   'line'
 
-zstyle ':prezto:module:pacman' frontend 'pacaur'
+zstyle ':prezto:module:pacman' frontend 'trizen'
 zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_ed25519'
