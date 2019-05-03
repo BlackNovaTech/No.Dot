@@ -46,7 +46,7 @@
   untracked = cyan
 
 [push]
-  default = matching
+  default = simple
   followTags = true
 
 [merge]
@@ -95,6 +95,8 @@
 
   set-upstream = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
   push-upstream = "!git push -u origin `git symbolic-ref --short HEAD`"
+  pushup = push-upstream
+  pulldown = "!f() { cur=`git symbolic-ref --short HEAD` && git checkout master && git branch -D $cur; }; f"
 
 # github needs love
 [url "git@github.com:"]
@@ -105,3 +107,11 @@
 [url "git://github.com/"]
   insteadOf = "github:"
 
+# and so does gitlab
+[url "git@gitlab.com:"]
+  insteadOf = "gl:"
+  pushInsteadOf = "gitlab:"
+  pushInsteadOf = "https://gitlab.com/"
+
+[url "https://gitlab.com/"]
+  insteadOf = "gitlab:"
