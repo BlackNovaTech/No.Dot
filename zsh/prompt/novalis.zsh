@@ -50,7 +50,7 @@ function prompt_novalis_setup {
 
   # Define prompts.
   PROMPT="$PROMPT in %F{green}%~%f%F{yellow}%(1j. ★%j.)%f "'${vcs_info_msg_0_}'"
-%(?.%F{green}.%F{red}%? )%(!.#.❯)%f "
+%(?.%F{green}.%F{red}%? )%(!.#.>)%f "
 
   RPROMPT=''
 }
