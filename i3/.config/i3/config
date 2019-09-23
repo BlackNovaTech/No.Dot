@@ -28,9 +28,9 @@ gaps outer $default_gaps_outer
 
 ### Workspaces ###
 
-set $ws1 1: main
-set $ws2 2: web
-set $ws3 3: terms
+set $ws1 1:main
+set $ws2 2:web
+set $ws3 3:terms
 set $ws4 4
 set $ws5 5
 set $ws6 6
@@ -144,7 +144,7 @@ bindsym $mod+space focus mode_toggle
 ### Keybinds ###
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
 
 # kill focused window(s)
 bindsym $mod+Shift+c kill
@@ -164,6 +164,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # enter resize mode
 bindsym $mod+r mode "resize"
 
+# toggle sticky mode (window on all workspaces)
+bindsym $mod+p sticky toggle
+
 # Pulse Audio controls
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 # bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -181,11 +184,6 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ### Window default locations ###
 
-assign [class="chromium"] $ws2
-assign [class="chromium-browser"] $ws2
-assign [class="firefox"] $ws2
-assign [class="Nightly"] $ws2
-
 ### Window floats ###
 
 for_window [class="Gimp"] floating enable
@@ -194,37 +192,42 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="TeamViewer"] floating enable
 for_window [class="Hopper"] floating enable
 for_window [class="Plexamp"] floating enable
+for_window [class="^Qemu-system-x86_64$"] floating enable
 
 ### Bar ###
-bar {
-  colors {
-    # Whole color settings
-    background #000000
-    statusline #ffffff
-    separator  #666666
-
-    #Type               border   background  font
-    focused_workspace   #008fff  #007fff     #ffffff
-    active_workspace    #333333  #5f676a     #ffffff
-    inactive_workspace  #333333  #222222     #888888
-    urgent_workspace    #aa0000  #990000     #ffffff
-  }
-  position top
-  status_command i3status -c ~/.config/i3/i3status.conf
-}
+# bar {
+#   colors {
+#     # Whole color settings
+#     background #000000
+#     statusline #ffffff
+#     separator  #666666
+#
+#     #Type               border   background  font
+#     focused_workspace   #008fff  #007fff     #ffffff
+#     active_workspace    #333333  #5f676a     #ffffff
+#     inactive_workspace  #333333  #222222     #888888
+#     urgent_workspace    #aa0000  #990000     #ffffff
+#   }
+#   position top
+#   status_command i3status -c ~/.config/i3/i3status.conf
+# }
 
 ### Startup programs ###
 
-exec --no-startup-id feh --bg-scale ~/Pictures/Shuvi.png
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec --no-startup-id feh --bg-fill ~/Pictures/Background.png
 exec --no-startup-id compton -b --config ~/.config/compton.conf
 exec --no-startup-id udiskie -ans
 exec --no-startup-id parcellite
 #exec --no-startup-id redshift
 
+#exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id telegram-desktop -startintray
-exec --no-startup-id jetbrains-toolbox --minimize
+#exec --no-startup-id jetbrains-toolbox --minimize
+exec --no-startup-id blueman-applet
+exec --no-startup-id redshift-gtk
 # exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 exec nm-applet
 exec xfce4-volumed-pulse
-exec volumeicon
