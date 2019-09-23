@@ -20,7 +20,7 @@ zplug "$NODOT_PATH/zsh/prompt", from:local, as:theme, use:novalis.zsh, rename-to
 # JSON Query -- Grep for JSON
 #zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 # Record Query -- Better grep for JSON
-zplug "dflemstr/rq", as:command, from:gh-r, rename-to:rq
+#zplug "dflemstr/rq", as:command, from:gh-r, rename-to:rq
 
 # exa -- Rust replacement for ls
 zplug "ogham/exa", as:command, from:gh-r, rename-to:exa, use:"*$USE_OS*"
@@ -36,6 +36,8 @@ zplug "BurntSushi/xsv", as:command, from:gh-r, rename-to:xsv
 zplug "peco/peco", as:command, from:gh-r
 # fzy -- even more fuzzy searching
 zplug "jhawthorn/fzy", as:command, hook-build:"make", use:fzy
+# z -- jumpy jumpy
+zplug "rupa/z", use:'(*).sh'
 
 zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, \
   hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto ${ZDOTDIR:-$HOME}/.zprezto"
