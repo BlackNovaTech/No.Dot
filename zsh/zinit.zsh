@@ -88,7 +88,6 @@ zinit wait'0c' from'gh-r' as'null' lucid for \
 	mv'jq* -> jq' sbin'jq' stedolan/jq \
 	mv'jiq* -> jiq' sbin'jiq' fiatjaf/jiq \
 	bpick'youtube-dl' sbin'youtube-dl' ytdl-org/youtube-dl \
-	mv'glooctl* -> glooctl' sbin'glooctl' solo-io/gloo \
 
 # Kubectl stuff
 zinit wait'0c' as'monitor|null' has'kubectl' \
@@ -97,5 +96,4 @@ zinit wait'0c' as'monitor|null' has'kubectl' \
 	lucid for https://github.com/helm/helm/releases
 
 zinit wait'0c' from'gh-r' as'null' has'kubectl' lucid for \
-	mv'glooctl* -> glooctl' sbin'glooctl' solo-io/gloo \
-	bpick"*stable*$(uname | tolower)*" mv'linkerd* -> linkerd' sbin'linkerd' linkerd/linkerd2
+	mv'k9s* -> k9s' sbin'k9s' derailed/k9s
