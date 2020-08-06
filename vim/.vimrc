@@ -447,7 +447,7 @@ let g:indentLine_color_gui = '#333333'
 " CoC
 
 " A lot of this fails on normal vim, so wrap it in a guard
-if has('nvim') && exists("CocAction")
+if has('nvim')
   " Use tab for trigger completion with characters ahead and navigate.
   " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
   " other plugin before putting this into your config.
@@ -598,7 +598,7 @@ augroup vimrc-git-cursor-jumpback
 augroup END
 
 " Neomake
-if has('nvim') && exists('Neomake')
+if has('nvim')
   autocmd! BufWritePost * Neomake
 end
 
