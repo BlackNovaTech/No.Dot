@@ -49,14 +49,17 @@
   default = simple
   followTags = true
 
+[pull]
+  rebase = false
+
 [merge]
   log = true
   tool = vimdiff
 
 [filter "lfs"]
   required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
 
 [alias]
   s = status -s
@@ -72,8 +75,11 @@
   scom = commit -S -m
   amend = commit --amend -C HEAD
 
+  d = diff
   dc = diff --cached
 
+  r = reset
+  a = add
   aa = add --all .
 
   pa = "!git pull; git submodule foreach git pull"
