@@ -96,4 +96,4 @@ zinit wait'0c' as'monitor|null' has'kubectl' \
 	lucid for https://github.com/helm/helm/releases
 
 zinit wait'0c' from'gh-r' as'null' has'kubectl' lucid for \
-	mv'k9s* -> k9s' sbin'k9s' derailed/k9s
+	sbin'k9s' derailed/k9s
