@@ -9,14 +9,21 @@ fi
 
 . "$ZINIT_HOME/bin/zinit.zsh"
 
-zinit light zinit-zsh/z-a-as-monitor
+zinit light zinit-zsh/z-a-readurl
 zinit light zinit-zsh/z-a-bin-gem-node
 
 # Prompt?
 if [ "${TERM##*-}" = '256color' ] || [ "${terminfo[colors]:?}" -gt 255 ]; then
-	zinit ice lucid depth=1
-	zinit light romkatv/powerlevel10k
-	. "$ZSH_INCLUDE/powerlevel10k.zsh"
+	if [ "$NODOT_USE_STARSHIP" = 'y' ]; then
+		zinit from'gh-r' as'null' lucid for \
+			sbin'starship' starship/starship
+
+		eval "$(starship init zsh)"
+	else
+		zinit ice lucid depth=1
+		zinit light romkatv/powerlevel10k
+		. "$ZSH_INCLUDE/powerlevel10k.zsh"
+	fi
 fi
 
 zstyle ':prezto:module:terminal' auto-title 'yes'
@@ -35,10 +42,10 @@ zinit snippet PZTM::completion
 
 zinit wait lucid for \
 	PZTM::directory \
-	PZTM::ssh
+	PZTM::ssh \
+	OMZP::extract
 
 zinit wait'0a' lucid for \
-	has'gpg' PZTM::gpg \
 	has'pacman' PZTM::pacman \
 	has'dnf' OMZP::dnf \
 	has'yum' OMZP::yum \
@@ -87,10 +94,10 @@ zinit wait'0c' from'gh-r' as'null' lucid for \
 	mv'xsv* -> xsv' sbin'xsv' BurntSushi/xsv \
 	mv'jq* -> jq' sbin'jq' stedolan/jq \
 	mv'jiq* -> jiq' sbin'jiq' fiatjaf/jiq \
-	bpick'youtube-dl' sbin'youtube-dl' ytdl-org/youtube-dl \
+	# bpick'youtube-dl' sbin'youtube-dl' ytdl-org/youtube-dl \
 
 # Kubectl stuff
-zinit wait'0c' as'monitor|null' has'kubectl' \
+zinit wait'0c' as'readurl|null' has'kubectl' \
 	sbin'**/helm' id-as='helm' \
 	extract dlink="https://get.helm.sh/helm-v3%VERSION%-$(uname | tolower)-amd64.tar.gz" \
 	lucid for https://github.com/helm/helm/releases
