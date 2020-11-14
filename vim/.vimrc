@@ -22,10 +22,10 @@ endfunction
 call plug#begin('~/.vim/plugged')
 
 " Languages
+let g:polyglot_disabled = ['latex', 'c', 'cpp']
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/c.vim'
 Plug 'zplug/vim-zplug'
-Plug 'chase/vim-ansible-yaml'
 Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
 
@@ -36,6 +36,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 
 Plug 'neomake/neomake', PlugCond(has('nvim'))
@@ -361,10 +362,6 @@ endfunction
 " =====================
 " Plugin Configurations
 " =====================
-
-" polyglot
-" We use vimtex for latex
-let g:polyglot_disabled = ['latex', 'c', 'cpp']
 
 " easymotion
 let g:EasyMotion_do_mapping = 0
