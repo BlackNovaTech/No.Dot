@@ -317,7 +317,13 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-" Retain visual mode after > and <
+" Move through splits
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
+"" Retain visual mode after > and <
 vmap < <gv
 vmap > >gv
 
