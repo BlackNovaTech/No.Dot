@@ -2,15 +2,15 @@
 # shellcheck shell=zsh
 
 if [[ ! -d "$ZINIT_HOME" ]]; then
-  echo 'Fetching zdharma/zinit'
+  echo 'Fetching zdharma-continuum/zinit'
   mkdir -p "$ZINIT_HOME"
-  git clone --quiet https://github.com/zdharma/zinit.git "$ZINIT_HOME/bin"
+  git clone --quiet https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME/bin"
 fi
 
 . "$ZINIT_HOME/bin/zinit.zsh"
 
-zinit light zinit-zsh/z-a-readurl
-zinit light zinit-zsh/z-a-bin-gem-node
+zinit light zdharma-continuum/zinit-annex-readurl
+zinit light zdharma-continuum/zinit-annex-bin-gem-node
 
 # Prompt?
 if [ "${TERM##*-}" = '256color' ] || [ "${terminfo[colors]:?}" -gt 255 ]; then
@@ -53,10 +53,13 @@ zinit wait'0a' lucid for \
 	has'kubectl' OMZP::kubectl/kubectl.plugin.zsh \
 	has'lua' skywind3000/z.lua \
 	has'helm' OMZP::helm/helm.plugin.zsh \
-	has'ansible' OMZP::ansible/ansible.plugin.zsh
+	has'ansible' OMZP::ansible/ansible.plugin.zsh \
+	has'cargo' OMZP::cargo/cargo.plugin.zsh \
+	has'rustup' OMZP::rustup/rustup.plugin.zsh \
+	has'pip' OMZP::pip/pip.plugin.zsh
 
 zinit wait lucid for \
-	light-mode zdharma/history-search-multi-word \
+	light-mode zdharma-continuum/history-search-multi-word \
 	light-mode zsh-users/zsh-history-substring-search
 
 [ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
@@ -68,7 +71,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 zinit wait'0z' lucid for \
 	atinit'ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
-		zdharma/fast-syntax-highlighting \
+		zdharma-continuum/fast-syntax-highlighting \
 	blockf \
 		zsh-users/zsh-completions \
 	atload'!_zsh_autosuggest_start' \
@@ -76,9 +79,7 @@ zinit wait'0z' lucid for \
 
 zinit wait'0z' as'completion' lucid for \
 	OMZP::docker/_docker \
-	OMZP::pip/_pip \
-	OMZP::rustup/_rustup \
-	OMZP::cargo/_cargo
+	OMZP::docker-compose/_docker-compose
 
 zinit wait'0b' lucid for \
 	MichaelAquilina/zsh-you-should-use \
@@ -87,11 +88,11 @@ zinit wait'0b' lucid for \
 
 zinit wait'0c' from'gh-r' as'null' lucid for \
 	sbin'fzf' junegunn/fzf-bin \
-	mv'exa* -> exa' sbin ogham/exa \
+	mv'bin/exa -> exa' sbin ogham/exa \
 	mv'fd* -> fd' sbin'fd/fd' @sharkdp/fd \
 	mv'bat* -> bat' sbin'bat/bat' @sharkdp/bat \
 	mv'ripgrep* -> ripgrep' sbin'ripgrep/rg' BurntSushi/ripgrep \
-	mv'xsv* -> xsv' sbin'xsv' BurntSushi/xsv \
+	sbin'xsv' BurntSushi/xsv \
 	mv'jq* -> jq' sbin'jq' stedolan/jq \
 	mv'jiq* -> jiq' sbin'jiq' fiatjaf/jiq \
 	# bpick'youtube-dl' sbin'youtube-dl' ytdl-org/youtube-dl \

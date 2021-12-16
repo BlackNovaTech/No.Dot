@@ -1,5 +1,7 @@
 bindkey -d
 
+NODOT_USE_STARSHIP="y"
+
 . "$ZSH_INCLUDE/options.zsh"
 . "$ZSH_INCLUDE/aliases.zsh"
 . "$ZSH_HOME/zinit.zsh"
