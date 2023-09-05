@@ -39,11 +39,12 @@ zinit snippet PZTM::editor
 zinit snippet PZTM::history
 zinit snippet PZTM::utility
 zinit snippet PZTM::completion
+#zinit snippet PZTM::ssh
 
 zinit wait lucid for \
 	PZTM::directory \
-	PZTM::ssh \
 	OMZP::extract
+
 
 zinit wait'0a' lucid for \
 	has'pacman' PZTM::pacman \
@@ -51,11 +52,8 @@ zinit wait'0a' lucid for \
 	has'yum' OMZP::yum \
 	has'rsync' OMZP::rsync \
 	has'kubectl' OMZP::kubectl/kubectl.plugin.zsh \
-	has'lua' skywind3000/z.lua \
 	has'helm' OMZP::helm/helm.plugin.zsh \
 	has'ansible' OMZP::ansible/ansible.plugin.zsh \
-	has'cargo' OMZP::cargo/cargo.plugin.zsh \
-	has'rustup' OMZP::rustup/rustup.plugin.zsh \
 	has'pip' OMZP::pip/pip.plugin.zsh
 
 zinit wait lucid for \
@@ -78,22 +76,23 @@ zinit wait'0z' lucid for \
 		zsh-users/zsh-autosuggestions
 
 zinit wait'0z' as'completion' lucid for \
-	OMZP::docker/_docker \
+	OMZP::docker/completions/_docker \
 	OMZP::docker-compose/_docker-compose
 
 zinit wait'0b' lucid for \
 	MichaelAquilina/zsh-you-should-use \
 	hlissner/zsh-autopair \
-	Tarrasch/zsh-bd
+	Tarrasch/zsh-bd \
+  MenkeTechnologies/zsh-cargo-completion
 
 zinit wait'0c' from'gh-r' as'null' lucid for \
-	sbin'fzf' junegunn/fzf-bin \
+	sbin'fzf' junegunn/fzf \
 	mv'bin/exa -> exa' sbin ogham/exa \
 	mv'fd* -> fd' sbin'fd/fd' @sharkdp/fd \
 	mv'bat* -> bat' sbin'bat/bat' @sharkdp/bat \
 	mv'ripgrep* -> ripgrep' sbin'ripgrep/rg' BurntSushi/ripgrep \
 	sbin'xsv' BurntSushi/xsv \
-	mv'jq* -> jq' sbin'jq' stedolan/jq \
+	mv'jq* -> jq' sbin'jq' jqlang/jq \
 	mv'jiq* -> jiq' sbin'jiq' fiatjaf/jiq \
 	# bpick'youtube-dl' sbin'youtube-dl' ytdl-org/youtube-dl \
 

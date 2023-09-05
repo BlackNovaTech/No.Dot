@@ -36,3 +36,8 @@ Thumbs.db
 *.err
 *.log
 
+# my gdb config
+.gdb_history
+# just in case
+composer.phar 
+.scannerwork
